@@ -1,0 +1,30 @@
+<div class="d-flex">
+    <!--Imagenes Random-->
+    <div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 class="card-title">Imagenes Random</h4>
+                <p class="card-text">Generador de imagenes random</p>
+                <button (click)="getDogImage()" class="btn btn-primary">Generar</button>
+            </div>
+        </div>
+        <div class="pt-5" *ngIf="data">
+            <img [src]="data" alt="Random Dog Image" width="500" height="500">
+        </div>
+    </div>
+
+    <!--White Space-->
+    <div style="margin-left: 90px; width: 600px;">
+
+        <h4>Espacios en blanco</h4>
+
+        <!--Text Area-->
+        <textarea [(ngModel)]="inputText" class="form-control" trimSpaces></textarea>
+        <textarea [value]="trimmedText" class="form-control mt-3"></textarea>
+        <button class="btn btn-primary mt-3" (click)="saveTrimmedText()">Guardar sin espacios</button>
+        <button type="button" (click)="logOut()" class="btn btn-danger mt-3" style="margin-left: 10px;">Log Out</button>
+
+    </div>
+
+    
+</div>
