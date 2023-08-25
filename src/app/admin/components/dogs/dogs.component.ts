@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../../services/dogs.service';
 
 // Third Parties
-import {
-  SocialAuthService,
-
-} from '@abacritt/angularx-social-login';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-dogs',
@@ -16,12 +13,14 @@ import {
   styleUrls: ['./dogs.component.css']
 })
 export class DogsComponent implements OnInit {
+  data = '';
+  inputText = '';
+  trimmedText = '';
 
-  data: string = '';
-  inputText: string = '';
-  trimmedText: string = '';
-
-  constructor(private dogApiService: DogsService, private socialAuthService: SocialAuthService,) { }
+  constructor(
+    private dogApiService: DogsService,
+    private socialAuthService: SocialAuthService
+  ) {}
 
   ngOnInit() {
     this.getDogImage();
@@ -40,5 +39,4 @@ export class DogsComponent implements OnInit {
   logOut(): void {
     this.socialAuthService.signOut();
   }
-  
 }
