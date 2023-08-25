@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 
 // Third Parties
 import { authGuard } from './security/service/auth.guard';
@@ -14,33 +13,30 @@ import {
 } from '@abacritt/angularx-social-login';
 
 // Project
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DogsComponent } from './admin/components/dogs/dogs.component';
 import { WhitespaceDirective } from './shared/directives/whitespace.directive';
 import { LoginComponent } from './security/login/login.component';
-
-const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'dogs', component: DogsComponent, canActivate: [authGuard] }
-];
+import { AdminModule } from './admin/admin.module';
+import { AppRoutingModule } from './app-routing.module';
+import { SecurityModule } from './security/security.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
     DogsComponent,
+    AppComponent,
     WhitespaceDirective,
     LoginComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     HttpClientModule,
     FormsModule,
     SocialLoginModule,
-    RouterModule.forRoot(appRoutes)
+    AdminModule,
+    SecurityModule
   ],
-  exports: [RouterModule],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',

@@ -4,13 +4,10 @@ import { CommonModule } from '@angular/common';
 
 // Third Parties
 import { LoginComponent } from './login/login.component';
+import { SecurityRoutingModule } from './security-routing.module';
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [],
+  imports: [CommonModule, SecurityRoutingModule]
 })
-export class SecurityModule { }
+export class SecurityModule {}
